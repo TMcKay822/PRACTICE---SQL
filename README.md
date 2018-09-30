@@ -1,4 +1,4 @@
-# SQL-Training-
+/* SQL-Training- */
 
 CREATE TABLE _Salesmen(
 Salesmen_id int, Name varchar(255),
