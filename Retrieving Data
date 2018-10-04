@@ -1,0 +1,4 @@
+/*Write a SQL statement to display specific columns like name and commission for all the salesmen.*/
+SELECT Name, Commission FROM _Salesmen;
+
+/*Write a query to display the columns in a specific order like order date, salesman id, order number and purchase amount from for all the orders.*/
