@@ -1,0 +1,192 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> matrix
+function (data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL) 
+{
+    if (is.object(data) || !is.atomic(data)) 
+        data <- as.vector(data)
+    .Internal(matrix(data, nrow, ncol, byrow, dimnames, missing(nrow), 
+        missing(ncol)))
+}
+<bytecode: 0x000000000f432db8>
+<environment: namespace:base>
+> [3,4]
+Error: unexpected '[' in "["
+> mat([3,4])
+Error: unexpected '[' in "mat(["
+>  6 2 
+Error: unexpected numeric constant in " 6 2"
+> x1= 6,1,0,4
+Error: unexpected ',' in "x1= 6,"
+> x1
+Error: object 'x1' not found
+> A=matrix((c(6,1,0,4,-9,2,3,-8,7,0,-4,5), nrow=3, ncol=4, byrow=TRUE)
+Error: unexpected ',' in "A=matrix((c(6,1,0,4,-9,2,3,-8,7,0,-4,5),"
+> A=matrix((c(6,1,0,4,-9,2,3,-8,7,0,-4,5), nrow=3, ncol=4, byrow=TRUE))
+Error: unexpected ',' in "A=matrix((c(6,1,0,4,-9,2,3,-8,7,0,-4,5),"
+> A=matrix((c(6,1,0,4,-9,2,3,-8,7,0,-4,5) nrow=3, ncol=4, byrow=TRUE))
+Error: unexpected symbol in "A=matrix((c(6,1,0,4,-9,2,3,-8,7,0,-4,5) nrow"
+> A=matrix(c(6,1,0,4,-9,2,3,-8,7,0,-4,5), nrow=3, ncol=4, byrow=TRUE)
+> a
+Error: object 'a' not found
+> A
+     [,1] [,2] [,3] [,4]
+[1,]    6    1    0    4
+[2,]   -9    2    3   -8
+[3,]    7    0   -4    5
+> X=matrix(c(x1,x2,x3,x4), nrow=1, ncol=4, byrow=TRUE)
+Error in matrix(c(x1, x2, x3, x4), nrow = 1, ncol = 4, byrow = TRUE) : 
+  object 'x1' not found
+> X=matrix(c('x1','x2','x3','x4'), nrow=1, ncol=4, byrow=TRUE)
+> A*x
+Error: object 'x' not found
+> A*X
+Error in A * X : non-numeric argument to binary operator
+> rref(A)
+Error: could not find function "rref"
+> qr.solve
+function (a, b, tol = 1e-07) 
+{
+    if (!is.qr(a)) 
+        a <- qr(a, tol = tol)
+    nc <- ncol(a$qr)
+    nr <- nrow(a$qr)
+    if (a$rank != min(nc, nr)) 
+        stop("singular matrix 'a' in solve")
+    if (missing(b)) {
+        if (nc != nr) 
+            stop("only square matrices can be inverted")
+        b <- diag(1, nc)
+    }
+    res <- qr.coef(a, b)
+    res[is.na(res)] <- 0
+    res
+}
+<bytecode: 0x000000000f1f36e0>
+<environment: namespace:base>
+> install.packages("pracma", repos="http://R-Forge.R-project.org")
+Warning in install.packages("pracma", repos = "http://R-Forge.R-project.org") :
+  'lib = "C:/Program Files/R/R-3.3.1/library"' is not writable
+
+  There is a binary version available but the source version is later:
+       binary source needs_compilation
+pracma  2.0.7  2.1.7             FALSE
+
+installing the source package ‘pracma’
+
+trying URL 'http://R-Forge.R-project.org/src/contrib/pracma_2.1.7.tar.gz'
+Content type 'application/x-gzip' length 356165 bytes (347 KB)
+downloaded 347 KB
+
+'\\menuserv\sys\MENU\EICXP'
+CMD.EXE was started with the above path as the current directory.
+UNC paths are not supported.  Defaulting to Windows directory.
+* installing *source* package 'pracma' ...
+** R
+** data
+*** moving datasets to lazyload DB
+** demo
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (pracma)
+
+The downloaded source packages are in
+        ‘C:\Users\g-library\AppData\Local\Temp\Rtmp06f9By\downloaded_packages’
+> library("pracma")
+> rref(A)
+     [,1] [,2] [,3]       [,4]
+[1,]    1    0    0  0.7777778
+[2,]    0    1    0 -0.6666667
+[3,]    0    0    1  0.1111111
+> A
+     [,1] [,2] [,3] [,4]
+[1,]    6    1    0    4
+[2,]   -9    2    3   -8
+[3,]    7    0   -4    5
+> solve(A)
+Error in solve.default(A) : 'a' (3 x 4) must be square
+> b= c(-3,1,2)
+> showEqn(A,b)
+Error: could not find function "showEqn"
+> library(matlib)
+Error in library(matlib) : there is no package called ‘matlib’
+> b
+[1] -3  1  2
+> col(b)
+Error in col(b) : a matrix-like object is required as argument to 'col'
+> rbin(A,b)
+Error: could not find function "rbin"
+> rbind(A,b)
+  [,1] [,2] [,3] [,4]
+     6    1    0    4
+    -9    2    3   -8
+     7    0   -4    5
+b   -3    1    2   -3
+Warning message:
+In rbind(A, b) :
+  number of columns of result is not a multiple of vector length (arg 2)
+> cbind(A,b)
+                 b
+[1,]  6 1  0  4 -3
+[2,] -9 2  3 -8  1
+[3,]  7 0 -4  5  2
+> rref(A,b)
+Error in rref(A, b) : unused argument (b)
+> Ab=cbind(A,b)
+> rref(Ab)
+                               b
+[1,] 1 0 0  0.7777778 -0.5396825
+[2,] 0 1 0 -0.6666667  0.2380952
+[3,] 0 0 1  0.1111111 -1.4444444
+> data=read.csv(data1_2)
+Error in read.table(file = file, header = header, sep = sep, quote = quote,  : 
+  object 'data1_2' not found
+> data=read.csv(data 1_2)
+Error: unexpected numeric constant in "data=read.csv(data 1"
+> data=read.csv(data1_2.csv)
+Error in read.table(file = file, header = header, sep = sep, quote = quote,  : 
+  object 'data1_2.csv' not found
+> A=matrix(c(6,1,0,4,-9,2,3,-8,7,0,-4,5), nrow=3, ncol=4, byrow=TRUE)
+> matA= matrix(c(3,0,-1,2,1,1), nrow=3, ncol=2 byrow=TRUE)
+Error: unexpected symbol in "matA= matrix(c(3,0,-1,2,1,1), nrow=3, ncol=2 byrow"
+> matA= matrix(c(3,0,-1,2,1,1), nrow=3, ncol=2, byrow=TRUE)
+> matB=matrix(c(4,-1,0,), nrow=2, ncol=2, byrow=TRUE)
+Error in c(4, -1, 0, ) : argument 4 is empty
+> matB=matrix(c(4,-1,0,2), nrow=2, ncol=2, byrow=TRUE)
+> matA*matB
+Error in matA * matB : non-conformable arrays
+> matA
+     [,1] [,2]
+[1,]    3    0
+[2,]   -1    2
+[3,]    1    1
+> matB
+     [,1] [,2]
+[1,]    4   -1
+[2,]    0    2
+> matA%*%matB
+     [,1] [,2]
+[1,]   12   -3
+[2,]   -4    5
+[3,]    4    1
+> 
