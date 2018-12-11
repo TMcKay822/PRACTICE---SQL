@@ -41,3 +41,14 @@ INSERT INTO orders values (70013, 3045.6, '2012-04-25', 3002, 5001);
 
 /* View inserted values in table */
 SELECT *FROM orders; 
+
+
+
+
+/* CREATE TABLE CUSTOMERS BUT ERROR */
+CREATE TABLE CUSTOMERS1(customer_id int, cust_name varchar(255), city varchar(255), grade int NOT NULL, salesman_id int, PRIMARY KEY (customer_id)); 
+
+INSERT INTO CUSTOMERS1 VALUES (3002, 'Nick Rimando', 'New York', 100, 5001); 
+INSERT INTO CUSTOMERS1 VALUES (3005, 'Graham Zusi', 'California', 200, 5002); 
+INSERT INTO CUSTOMERS1 VALUES (3001, 'Brad Guzan', 'London', 0 , 5005); 
+INSERT INTO CUSTOMERS1 VALUES (3004, 'Fabian Johns', 'Paris', 300, 5006); 
