@@ -1,1 +1,20 @@
+CREATE TABLE CUSTOMER (customer_id int, cust_name varchar(255),
+city varchar(255), grade int NOT NULL, salesman_id int, 
+Primary key (customer_id) );
+
+insert into CUSTOMER values
+(3002, 'Nick Rimando', 'New York', 100, 5001); 
+insert into CUSTOMER values
+(3005, 'Graham Zusi', 'California', 200, 5002); 
+insert into CUSTOMER values
+(3001, 'Brad Guzan', 'London','' , 5005); 
+
+select * from CUSTOMER; 
+select * from CUSTOMER where grade >100; 
+select * from CUSTOMER where grade >100 and city = 'New York'; 
+
+insert into CUSTOMER values
+(3004, 'Fabian Johns', 'Paris', 300, 5006); 
+insert into CUSTOMER values
+(3007, 'Brad Davis', 'New York', 200, 5001); 
 
