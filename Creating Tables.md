@@ -1,23 +1,22 @@
 /* SQL-Training-CREATING TABLES */
 
 /* Create table for salesmen */
-CREATE TABLE _Salesmen(
-Salesmen_id int, Name varchar(255),
-City char(255), Commission numeric (10,2) NOT NULL,
-PRIMARY KEY (Salesmen_id)); 
-INSERT INTO _Salesmen(Salesmen_id, Name, City, Commission)
-VALUES (5001,'James Hong', 'New York', 0.15); 
-INSERT INTO _Salesmen(Salesmen_id, Name, City, Commission)
-VALUES (5002, 'Nail Knite', 'Paris', 0.13); 
-INSERT INTO _Salesmen(Salesmen_id, Name, City, Commission)
-VALUES (5005, 'Pit Alex', 'London', 0.11);
-INSERT INTO _Salesmen(salesmen_id, Name, City, Commission)
-VALUES (5006, 'Mc Lyon', 'Paris', 0.14);
-INSERT INTO _Salesmen(Salesmen_id, Name, City, Commission)
-VALUES (5003, 'Lauson Hen', '   ', 0.12); 
-INSERT INTO _Salesmen(Salesmen_id, Name, City, Commission)
-VALUES (5007, 'Paul Adam', 'Rome', 0.13); 
-SELECT* FROM _Salesmen;
+CREATE TABLE Salesman(Salesman_id int,
+                       Name varchar(255),
+                       City char(255),
+                       Commission decimal (10,2),
+                       PRIMARY KEY (Salesman_id));
+ INSERT INTO Salesman VALUES (5001,'James Hoog', 'New York', 0.15);
+ 
+ INSERT INTO Salesman VALUES (5002,'Nail Knite', 'Paris', 0.13);
+ INSERT INTO Salesman VALUES (5005, 'Pit Alex', 'London', 0.11); 
+ INSERT INTO Salesman VALUES (5006, 'Mc Lyon', 'Paris', 0.14); 
+ INSERT INTO Salesman VALUES (5003, 'Lauson Hen', ' ', 0.12); 
+ INSERT INTO Salesman VALUES (5007, 'Paul Adam', 'Rome', 0.13); 
+ 
+ select * from salesman; 
+ 
+/*********************************************************************************************/
 
 /* Create table Orders*/
 CREATE TABLE orders (ord_no int, purch_amt numeric (10,2) NOT NULL, 
@@ -38,17 +37,30 @@ INSERT INTO orders values (70012, 250.45, '2012-06-27', 3008, 5002);
 INSERT INTO orders values (70011, 75.29, '2012-08-17', 3003, 5007);
 INSERT INTO orders values (70013, 3045.6, '2012-04-25', 3002, 5001);
 
-
 /* View inserted values in table */
 SELECT *FROM orders; 
 
+/*********************************************************************************************/
+/* Create table customer */
+CREATE TABLE CUSTOMER (customer_id int, cust_name varchar(255),
+city varchar(255), grade int, salesman_id int, 
+Primary key (customer_id) );
+
+insert into CUSTOMER values
+(3002, 'Nick Rimando', 'New York', 100, 5001); 
+insert into CUSTOMER values
+(3005, 'Graham Zusi', 'California', 200, 5002); 
+insert into CUSTOMER values
+(3001, 'Brad Guzan', 'London','' , 5005); 
+insert into CUSTOMER values
+(3004, 'Fabian Johns', 'Paris', 300, 5006); 
+insert into CUSTOMER values
+(3007, 'Brad Davis', 'New York', 200, 5001); 
+INSERT INTO customer VALUES 
+(3009, 'Geoff Camero', 'Berlin', 100, 5003); 
+INSERT INTO customer VALUES 
+(3008, 'Julian Green', 'London', 300, 5002); 
+INSERT INTO customer VALUES 
+(3003, 'Jozy Altidor', 'Moscow', 200, 5007); 
 
 
-
-/* CREATE TABLE CUSTOMERS BUT ERROR */
-CREATE TABLE CUSTOMERS1(customer_id int, cust_name varchar(255), city varchar(255), grade int NOT NULL, salesman_id int, PRIMARY KEY (customer_id)); 
-
-INSERT INTO CUSTOMERS1 VALUES (3002, 'Nick Rimando', 'New York', 100, 5001); 
-INSERT INTO CUSTOMERS1 VALUES (3005, 'Graham Zusi', 'California', 200, 5002); 
-INSERT INTO CUSTOMERS1 VALUES (3001, 'Brad Guzan', 'London', 0 , 5005); 
-INSERT INTO CUSTOMERS1 VALUES (3004, 'Fabian Johns', 'Paris', 300, 5006); 
