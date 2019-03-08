@@ -1,0 +1,24 @@
+/*********************************************************************************************************/
+/* Aggregate functions */
+/* Write a SQL statement to find the total purchase amount of all orders.*/
+SELECT sum(purch_amt) FROM orders; 
+
+/*Write a SQL statement to find the average purchase amount of all orders. */
+SELECT AVG(purch_amt) from orders; 
+
+/* Write a SQL statement to find the number of salesmen currently listing for all of their customers. */
+SELECT COUNT(DISTINCT salesman_id) from orders; 
+
+/*Write a SQL statement know how many customer have listed their names. */
+SELECT COUNT(DISTINCT CUST_NAME) FROM CUSTOMER; 
+/* OR */
+SELECT COUNT(*) FROM CUSTOMER; 
+
+/* Write a SQL statement to get the maximum purchase amount of all the orders. */
+SELECT MAX(purch_amt) FROM orders; 
+
+/*Write a SQL statement to get the minimum purchase amount of all the orders. */
+SELECT MIN(purch_amt) FROM orders;
+
+/* Write a SQL statement which selects the highest grade for each of the cities of the customers. */
+SELECT MAX(GRADE
