@@ -1,3 +1,4 @@
+
 /*********************************************************************************************************/
 /* Aggregate functions */
 /* Write a SQL statement to find the total purchase amount of all orders.*/
@@ -21,4 +22,18 @@ SELECT MAX(purch_amt) FROM orders;
 SELECT MIN(purch_amt) FROM orders;
 
 /* Write a SQL statement which selects the highest grade for each of the cities of the customers. */
-SELECT MAX(GRADE
+SELECT city,max(grade) from customer group by city; 
+
+
+/* Write a SQL statement to find the highest purchase amount ordered by the each customer with their ID and 
+highest purchase amount.*/
+select customer_id, max(purch_amt) as Max_purch from orders group by customer_id; 
+
+/* Write a SQL statement to find the highest purchase amount ordered by the each customer on a particular date 
+with their ID, order date and highest purchase amount.*/
+select customer_id, ord_date, max(purch_amt) as Max_Purh from orders group by customer_id, ord_date;
+
+
+/* Write a SQL statement to find the highest purchase amount on a date '2012-08-17' for each salesman with their ID.*/
+
+SELECT salesman_id, max(purch_amt) as Max_Purch from orders where ord_date ='2012-08-17' group by salesman_id; 
