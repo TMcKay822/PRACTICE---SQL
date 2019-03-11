@@ -1,4 +1,3 @@
-
 /*********************************************************************************************************/
 /* Aggregate functions */
 /* Write a SQL statement to find the total purchase amount of all orders.*/
@@ -37,3 +36,9 @@ select customer_id, ord_date, max(purch_amt) as Max_Purh from orders group by cu
 /* Write a SQL statement to find the highest purchase amount on a date '2012-08-17' for each salesman with their ID.*/
 
 SELECT salesman_id, max(purch_amt) as Max_Purch from orders where ord_date ='2012-08-17' group by salesman_id; 
+
+
+/*Write a SQL statement to find the highest purchase amount with their ID and order date, for only those customers
+who have a higher purchase amount in a day is within the list 2000, 3000, 5760 and 6000.*/
+SELECT customer_id, ord_date, max(purch_amt) as Max_purch from orders where purch_amt in (2000,3000,5760,6000)
+group by customer_id, ord_date;
