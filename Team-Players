@@ -19,7 +19,8 @@ CREATE TABLE team(id int, League varchar(60), Name char(35), Division varchar(25
     INSERT INTO team VALUES (5010, 'Blue League', 'Ladders', 10);
     INSERT INTO team VALUES (5011, 'Blue League', 'Chaos', 10);
     INSERT INTO team VALUES (5012, 'Blue League', 'Sloths', 10);
-    
+ 
+ /* VIEW THE TABLE */
 SELECT * FROM team; 
 
 
@@ -45,29 +46,40 @@ CREATE TABLE player(id int, Name char(35), height int,
     INSERT INTO player VALUES (9016, 'Julius', 59, 139, 5010);
     INSERT INTO player VALUES (9017, 'Manny', 71, 173, 5011);
     INSERT INTO player VALUES (9018, 'Danny', 64, 159, 5012);
+
+/* VIEW THE TABLE */
 SELECT * FROM player; 
 
 
-
-
+/* LEFT JOINING TABLES TOGETHER TO HAVE TEAM NAME ON SAME TABLE AS PLAYERS' HEIGHT */ 
 SELECT b.id, a.name as Team_Name, b.name as Player_name, b.height, b.weight, b.team_id
 INTO team_player
 FROM player b
 LEFT JOIN team a ON
 a.id=b.team_id; 
 
+/* VIEW THE TABLE */
 SELECT * FROM team_player;
 
+/* USED TO CREATE A TABLE THAT AVERAGES THE HEIGHTS OF THE PLAYERS */
 SELECT Team_Name, avg(height) as avg_height, team_id
 INTO New_table_with_avg_height
 FROM team_player
 GROUP by Team_Name, team_id
 
+/* VIEW THE TABLE */
 SELECT * FROM New_table_with_avg_height
 
+
+/* Created table with the sort of average heights, instead of just viewing the information */
 SELECT TOP (10) Team_Name, avg_height
+INTO final_table_with_sorted_height
 FROM New_table_with_avg_height
 ORDER BY avg_height DESC
+
+
+/* USED TO VIEW NEW TABLE THAT SORTS THE AVERAGE HEIGHTS OF THE TOP 10 TEAMS*/
+select * from final_table_with_sorted_height
 
 
 
