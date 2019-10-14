@@ -1,0 +1,18 @@
+/* Revising the Select Query I */
+
+/* Query all columns for all American cities in CITY with populations larger than 100000. The CountryCode for America is USA.
+*/
+SELECT * FROM CITY
+WHERE COUNTRYCODE ='USA'
+AND POPULATION > 100000;
+
+/* Weather Observation Station 5 */
+/* 
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+*/
+
+SELECT top(1) CITY, LEN(CITY) FROM STATION  ORDER BY LEN(CITY), city ASC
+SELECT top(1) CITY, LEN(CITY) FROM STATION ORDER BY LEN(CITY) DESC, city ASC
+
+
+
