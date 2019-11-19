@@ -82,5 +82,5 @@ SELECT * FROM salesman where commission between 0.12 and 0.14;
 
 
 /* Write a query to filter all those orders with all information which purchase amount value is within the range 500
-and 4000 except those orders of purchase amount value 948.50 and 1983.43.*/
+and 4000 except those orders of purchase amount value 948.50 and 1983.43.*/ 
 SELECT * FROM orders where purch_amt between 500 and 4000 and not purch_amt in (948.50,1983.43);
